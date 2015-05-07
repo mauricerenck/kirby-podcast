@@ -55,4 +55,4 @@ To add new episodes, you have to create a content-directory for all your episode
 Name your markdownfile `episode.md` or `episode.txt`. You can use the `episode.sample.md` file in the plugin directory as a reference. You can now put your MP3 files in your episodes' folder, they will be automaticly detected and their information will be parsed.
 
 ## Author
-Maurice Renck [www.maurice-renck.de](https://www.maurice-renck.de/kirby-podcast-plugin)
+Maurice Renck [www.maurice-renck.de](https://www.maurice-renck.de/x/3j297c)
