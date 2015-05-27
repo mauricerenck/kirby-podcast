@@ -82,20 +82,30 @@
 
 			<atom:link rel="http://podlove.org/deep-link" href="<?php echo xml($item->url()); ?>"/>
 			<?php foreach($item->audio() as $audio): ?>
-				<?php
-					$path				= $audio->root();
-					$mixinfo			= $getID3->analyze($path);
-					$duration			= $mixinfo['playtime_string'];
-					list($mins , $secs)	= explode(':' , $duration);
+				<?php 
+					$duration = $audio->duration();
 
-					if($mins > 60) {
-						$hours	= intval($mins / 60);
-						$mins	= $mins - $hours*60;
+					// check if length information is already written to meta-file
+					// if not, write the information
+					if($audio->duration()->empty()) {
+						$path				= $audio->root();
+						$mixinfo			= $getID3->analyze($path);
+						$duration			= $mixinfo['playtime_string'];
+						list($mins , $secs)	= explode(':' , $duration);
+
+						if($mins > 60) {
+							$hours	= intval($mins / 60);
+							$mins	= $mins - $hours*60;
+						}
+
+						$duration = sprintf("%02d:%02d:%02d" , $hours , $mins , $secs);
+
+						$audio->update(array(
+							'duration' => $duration
+						));
 					}
-
-					$duration = sprintf("%02d:%02d:%02d" , $hours , $mins , $secs);
 				?>
-				<enclosure url="<?php echo $audio->url() ?>" length="<?php echo $mixinfo['filesize']; ?>" type="<?php echo $audio->mime() ?>"/>
+				<enclosure url="<?php echo $audio->url() ?>" length="<?php echo $audio->size() ?>" type="<?php echo $audio->mime() ?>"/>
 			<?php endforeach; ?>
 			<itunes:duration><?php echo $duration; ?></itunes:duration>
 			<itunes:author><?php echo xml($item->author()); ?></itunes:author>
