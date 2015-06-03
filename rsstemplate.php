@@ -104,8 +104,14 @@
 							'duration' => $duration
 						));
 					}
+
+					if($enableTracking) {
+						$audioUrl = $item->url().'/download/'.str_replace('.mp3', '', $audio->filename());
+					} else {
+						$audioUrl = $audio->url();
+					}
 				?>
-				<enclosure url="<?php echo $audio->url() ?>" length="<?php echo $audio->size() ?>" type="<?php echo $audio->mime() ?>"/>
+				<enclosure url="<?php echo $audioUrl ?>" length="<?php echo $audio->size() ?>" type="<?php echo $audio->mime() ?>"/>
 			<?php endforeach; ?>
 			<itunes:duration><?php echo $duration; ?></itunes:duration>
 			<itunes:author><?php echo xml($item->author()); ?></itunes:author>
