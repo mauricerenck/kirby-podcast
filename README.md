@@ -47,7 +47,7 @@ Type in `yes` or `no` to mark your podcast as explicit (or not)
 ##### itunesCategories
 Enter a comma separated list of iTunes categories and subcategories. Subcategories have to be added after a / for example:
 `Technology,Technology/Podcasting`
-You can find a list of all iTunes-Categories in ìTunesCategories.json`
+You can find a list of all iTunes-Categories in `iTunesCategories.json`
 
 ### Add new episodes
 To add new episodes, you have to create a content-directory for all your episodes, for example `/content/01-episodes/` Add your single episodes as you would do with normal pages.
