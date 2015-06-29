@@ -3,10 +3,15 @@
 		TODO:	Calculate the duration and size of the audiofiles once,
 				not every time the feed is loaded, to decrease script-runtime
 				especially when there are a lot of audiofiles and subscribers
- 	*/
+	*/
+
 	$pluginPath = dirname(__FILE__);
-	require_once($pluginPath.'/getID3/getid3/getid3.php');
-	$getID3 = new getID3;
+	$useID3 = c::get('podcast.useID3', false);
+
+	if($useID3) {
+		require_once($pluginPath.'/getID3/getid3/getid3.php');
+		$getID3 = new getID3;
+	}
 
 
 	function parseCategories($categoryList) {
@@ -82,27 +87,29 @@
 
 			<atom:link rel="http://podlove.org/deep-link" href="<?php echo xml($item->url()); ?>"/>
 			<?php foreach($item->audio() as $audio): ?>
-				<?php 
+				<?php
 					$duration = $audio->duration();
 
-					// check if length information is already written to meta-file
-					// if not, write the information
-					if($audio->duration()->empty()) {
-						$path				= $audio->root();
-						$mixinfo			= $getID3->analyze($path);
-						$duration			= $mixinfo['playtime_string'];
-						list($mins , $secs)	= explode(':' , $duration);
+					if($useID3) {
+						// check if length information is already written to meta-file
+						// if not, write the information
+						if($audio->duration()->empty()) {
+							$path				= $audio->root();
+							$mixinfo			= $getID3->analyze($path);
+							$duration			= $mixinfo['playtime_string'];
+							list($mins , $secs)	= explode(':' , $duration);
 
-						if($mins > 60) {
-							$hours	= intval($mins / 60);
-							$mins	= $mins - $hours*60;
+							if($mins > 60) {
+								$hours	= intval($mins / 60);
+								$mins	= $mins - $hours*60;
+							}
+
+							$duration = sprintf("%02d:%02d:%02d" , $hours , $mins , $secs);
+
+							$audio->update(array(
+								'duration' => $duration
+							));
 						}
-
-						$duration = sprintf("%02d:%02d:%02d" , $hours , $mins , $secs);
-
-						$audio->update(array(
-							'duration' => $duration
-						));
 					}
 
 					if($enableTracking) {
