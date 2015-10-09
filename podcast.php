@@ -6,14 +6,15 @@
  * @see Bastian Allgeier <bastian@getkirby.com>
  * @version 0.0.1
  */
-Pages::$methods['podcast'] = function($pages, $params = array()) {
+
+require 'lib/podcast.php';
+
+Pages::$methods['podcast'] = function($pages, $page, $params = array()) {
+
+	$podcast = new Podcast();
 
 	// set all default values
 	$defaults = array(
-		'url'			=> url('podcast'), // direct url to the atom-feed
-		'title'			=> 'Podcasts',
-		'description'	=> '',
-		'link'			=> url(),
 		'datefield'		=> 'date',
 		'textfield'		=> 'text',
 		'modified'		=> time(),
@@ -21,7 +22,20 @@ Pages::$methods['podcast'] = function($pages, $params = array()) {
 		'generator'		=> kirby()->option('feed.generator', 'Kirby'),
 		'header'		=> true,
 		'snippet'		=> false,
-		'language'		=> 'de-DE'
+		'language'		=> 'de-DE',
+
+		'url'				=> $page->url(),
+		'title'				=> $page->title(),
+		'description'		=> $page->description(),
+		'link'				=> $page->link(),
+		'itunesAuthor'		=> $page->itunesAuthor(),
+		'itunesEmail'		=> $page->itunesEmail(),
+		'itunesImage'		=> $page->itunesImage(),
+		'itunesSubtitle'	=> $page->itunesSubtitle(),
+		'itunesKeywords'	=> $page->itunesKeywords(),
+		'itunesBlock'		=> $page->itunesBlock(),
+		'itunesExplicit'	=> $page->itunesExplicit(),
+		'itunesCategories'	=> $podcast->cleanCategories($page->itunesCategories())
 	);
 
 	// merge them with the user input
@@ -38,7 +52,7 @@ Pages::$methods['podcast'] = function($pages, $params = array()) {
 	if($options['datefield'] == 'modified') {
 		$options['modified'] = $items->first()->modified();
 	} else {
-		$options['modified'] = $items->first()->date(false, $options['datefield']);
+		$options['modified'] = $items->first()->date();
 	}
 
 	// send the xml header

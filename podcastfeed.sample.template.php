@@ -7,23 +7,19 @@
  * @see Bastian Allgeier <bastian@getkirby.com>
  */
 
-function cleanCategories($categoryString) {
-	$categories = explode(',', $categoryString);
-	$categories = preg_replace('/\n/', '', $categories);
-	$categories = preg_replace('/\t/', '', $categories);
-	return $categories;
-}
+/**
+*	These are the default value
+*	If You don't need to change them, just remove this array and 
+*	remove $options from podcast() below;
+*/
+$options = array(
+	'datefield' => 'date',
+	'textfield' => 'text',
+	'excerpt' => false,
+	'header' => true,
+	'snippet' => false
+)
 
-echo page('episodes')->children()->visible()->flip()->podcast(array(
-	'title'				=> $page->title(),
-	'description'		=> $page->description(),
-	'link'				=> $page->link(),
-	'itunesAuthor'		=> $page->itunesAuthor(),
-	'itunesEmail'		=> $page->itunesEmail(),
-	'itunesImage'		=> $page->itunesImage(),
-	'itunesSubtitle'	=> $page->itunesSubtitle(),
-	'itunesKeywords'	=> $page->itunesKeywords(),
-	'itunesBlock'		=> $page->itunesBlock(),
-	'itunesExplicit'	=> $page->itunesExplicit(),
-	'itunesCategories'	=> cleanCategories($page->itunesCategories())
-));
+// Change 'episodes' to your needs, insert the parent content-folder
+// where all your episodes live in
+echo page('episodes')->children()->visible()->podcast($page, $options);

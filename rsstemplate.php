@@ -1,10 +1,4 @@
 <?php
-	/*
-		TODO:	Calculate the duration and size of the audiofiles once,
-				not every time the feed is loaded, to decrease script-runtime
-				especially when there are a lot of audiofiles and subscribers
-	*/
-
 	$pluginPath = dirname(__FILE__);
 	$useID3 = c::get('podcast.useID3', false);
 
@@ -13,26 +7,7 @@
 		$getID3 = new getID3;
 	}
 
-
-	function parseCategories($categoryList) {
-		$categories	= array();
-		foreach ($categoryList as $mainCategory) {
-			// split category in main and sub category
-			$currentCategory = explode('/', $mainCategory);
-
-			if(!isset($categories[$currentCategory[0]])) {
-				$categories[$currentCategory[0]] = array();
-				if(isset($currentCategory[1])) {
-					$categories[$currentCategory[0]][] = $currentCategory[1];
-				}
-			} else {
-				if(isset($currentCategory[1])) {
-					$categories[$currentCategory[0]][] = $currentCategory[1];
-				}
-			}
-		}
-		return $categories;
-	}
+	$podcast = new Podcast();
 ?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:psc="http://podlove.org/simple-chapters" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:fh="http://purl.org/syndication/history/1.0" version="2.0">
 	<channel>
@@ -53,9 +28,8 @@
 			<?php echo xml($description); ?>
 		</itunes:summary>
 		<?php
-			$categories = parseCategories($itunesCategories);
+			$categories = $podcast->parseCategories($itunesCategories);
 			foreach ($categories as $key => $mainCategory) {
-
 				if(is_array($mainCategory)) {
 					echo '<itunes:category text="'.$key.'">';
 					foreach ($mainCategory as $subCategory) {

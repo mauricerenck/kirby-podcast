@@ -11,12 +11,10 @@ This plugin also analyzes your mp3-files and automaticly adds time- and size-inf
     - Download: Download it from GitHub, unzip to plugin-folder, make sure to name the directory `podcast`
 3. In your content-directory create a new directory without a leading number (for example `podcast`) to make the feed available under that URL.
 4. Copy the `podcastfeed.sample.md` to that directory and rename it to `podcastfeed.md`
-5. Copy the file `podcastfeed.sample.template.php` to your templates-directory in `/site/templates`
+5. Copy the file `podcastfeed.sample.template.php` to your templates-directory in `/site/templates` and rename it to podcastfeed.php
+6. Edit the file to your needs
 
 ## Configuration
-
-### Setting your post-basedir
-The plugins needs to know, where your episodes are located. By default it will look into `content/episodes`. You can change that location by setting `c::set('podcast.basedir', 'YOUREPISODE_DIR_IN_CONTENT');` in your `config.php`
 
 ### Enable GetID3 for duration detection
 You can use the GetID3-lib to let the plugin determine the length of your audio files. By default this is deactivated, you can enable this feature by setting `c::set('podcast.useID3', true);` in your `config.php`.
