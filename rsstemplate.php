@@ -98,7 +98,7 @@
 			<itunes:author><?php echo xml($item->author()); ?></itunes:author>
 			<itunes:subtitle><?php echo xml($item->subtitle()); ?></itunes:subtitle>
 			<itunes:summary>
-				<![CDATA[<?php echo $item->{$textfield}()->kirbytext() ?>]]>
+				<?php echo $item->{$textfield}()->kirbytext() ?>
 			</itunes:summary>
 		</item>
 		<?php endforeach ?>
