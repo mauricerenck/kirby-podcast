@@ -98,7 +98,7 @@
 			<itunes:author><?php echo xml($item->author()); ?></itunes:author>
 			<itunes:subtitle><?php echo xml($item->subtitle()); ?></itunes:subtitle>
 			<itunes:summary>
-			<?php echo $item->{$textfield}()->text() ?>
+			<?php echo xml($item->{$textfield}()->text()) ?>
 			</itunes:summary>
 		</item>
 		<?php endforeach ?>
