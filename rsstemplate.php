@@ -87,7 +87,7 @@
 					}
 
 					if($enableTracking) {
-						$audioUrl = $item->url().'/download/'.str_replace('.mp3', '', $audio->filename());
+						$audioUrl = $item->url().'/download/'.$audio->filename();
 					} else {
 						$audioUrl = $audio->url();
 					}
