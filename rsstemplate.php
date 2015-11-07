@@ -9,7 +9,7 @@
 
 	$podcast = new Podcast();
 ?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:psc="http://podlove.org/simple-chapters" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:fh="http://purl.org/syndication/history/1.0" version="2.0">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:fh="http://purl.org/syndication/history/1.0" version="2.0">
 	<channel>
 		<title><?php echo xml($title); ?></title>
 		<link><?php echo xml($link); ?></link>
@@ -59,7 +59,7 @@
 			<pubDate><?php echo ($datefield == 'modified') ? $item->modified('r') : $item->date('r', $datefield); ?></pubDate>
 			<description><![CDATA[<?php echo $item->{$textfield}()->kirbytext() ?>]]></description>
 
-			<atom:link rel="http://podlove.org/deep-link" href="<?php echo xml($item->url()); ?>"/>
+			<atom:link  href="<?php echo xml($item->url()); ?>"/>
 			<?php foreach($item->audio() as $audio): ?>
 				<?php
 					$duration = $audio->duration();
