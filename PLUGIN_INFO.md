@@ -7,7 +7,7 @@ This plugin also analyzes your mp3-files and automaticly adds time- and size-inf
 ## Installation
 1. Go to the plugin-folder `/site/plugins`
 2. get the plugin using 
-    - Git: `git submodule add git@github.com:mauricerenck/kirby-podcast.git podcast`
+    - Git: `git submodule add https://github.com/mauricerenck/kirby-podcast.git podcast`
     - Download: Download it from GitHub, unzip to plugin-folder, make sure to name the directory `podcast`
 3. In your content-directory create a new directory without a leading number (for example `podcast`) to make the feed available under that URL.
 4. Copy the `podcastfeed.sample.md` to that directory and rename it to `podcastfeed.md`
