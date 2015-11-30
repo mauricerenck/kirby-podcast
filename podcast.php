@@ -42,7 +42,7 @@ Pages::$methods['podcast'] = function($pages, $page, $params = array()) {
 	$options = array_merge($defaults, $params);
 
 	// sort by date
-	$items = $pages->sortBy($options['datefield'], 'desc');
+	$items = $pages->flip()->filterBy('date', '<=', time());
 
 	// add the items
 	$options['items'] = $items;
