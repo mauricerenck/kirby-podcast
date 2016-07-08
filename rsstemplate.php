@@ -28,6 +28,7 @@
 
 		<?php if(!empty($itunesSubtitle)): ?>
 		<itunes:subtitle><![CDATA[<?php echo xml($itunesSubtitle); ?>]]></itunes:subtitle>
+		<?php endif; ?>
 
 		<itunes:image href="<?php echo xml($itunesImage); ?>"/>
 		<image>
@@ -105,7 +106,7 @@
 				<enclosure url="<?php echo $audioUrl ?>" length="<?php echo $audio->size() ?>" type="<?php echo $audio->mime() ?>"/>
 			<?php endforeach; ?>
 			<itunes:duration><?php echo $duration; ?></itunes:duration>
-			<itunes:author><?php echo xml($item->author()); ?></itunes:author>
+			<itunes:author><?php echo xml($itunesAuthor); ?></itunes:author>
 			<itunes:subtitle><![CDATA[<?php echo xml($item->subtitle()); ?>]]></itunes:subtitle>
 			<itunes:summary><![CDATA[<?php echo $item->{$textfield}()->value() ?>]]></itunes:summary>
 			<description><![CDATA[<?php echo $item->{$textfield}()->value() ?>]]></description>
