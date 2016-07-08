@@ -11,22 +11,41 @@
 ?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:fh="http://purl.org/syndication/history/1.0" version="2.0">
 	<channel>
-		<title><?php echo xml($title); ?></title>
-		<link><?php echo xml($link); ?></link>
-
-		<?php if(!empty($description)): ?>
-		<description><?php echo xml($description); ?></description>
-		<?php endif ?>
-
 		<atom:link href="<?php echo xml($url) ?>" rel="self" type="application/rss+xml" title="<?php echo xml($title) ?>"/>
+		<link><?php echo xml($link); ?></link>
+		<docs><?php echo xml($link); ?></docs>
+
 		<lastBuildDate><?php echo date('r', $modified); ?></lastBuildDate>
 		<language><?php echo xml($language); ?></language>
-		<generator><?php echo c::get('feed.generator', 'Kirby') ?></generator>
+		<generator><?php echo c::get('feed.generator', 'Kirby Podcast Plugin') ?></generator>
+
+		<title><?php echo xml($title); ?></title>
+
+		<?php if(!empty($description)): ?>
+		<itunes:summary><![CDATA[<?php echo xml($description); ?>]]></itunes:summary>
+		<description><![CDATA[<?php echo xml($description); ?>]]></description>
+		<?php endif ?>
+
+		<?php if(!empty($itunesSubtitle)): ?>
+		<itunes:subtitle><![CDATA[<?php echo xml($itunesSubtitle); ?>]]></itunes:subtitle>
+
+		<itunes:image href="<?php echo xml($itunesImage); ?>"/>
+		<image>
+			<url><?php echo xml($itunesImage); ?></url>
+			<title><?php echo xml($title); ?></title>
+			<link><![CDATA[<?php echo xml($link); ?>]]></link>
+		</image>
 
 		<itunes:author><?php echo xml($itunesAuthor); ?></itunes:author>
-		<itunes:summary>
-			<?php echo xml($description); ?>
-		</itunes:summary>
+		<itunes:owner>
+			<itunes:name><?php echo xml($itunesAuthor); ?></itunes:name>
+			<itunes:email><?php echo xml($itunesEmail); ?></itunes:email>
+		</itunes:owner>
+
+		<itunes:block><?php echo xml($itunesBlock); ?></itunes:block>
+		<itunes:explicit><?php echo xml($itunesExplicit); ?></itunes:explicit>
+		<itunes:keywords><?php echo xml($itunesKeywords); ?></itunes:keywords>
+
 		<?php
 			$categories = $podcast->parseCategories($itunesCategories);
 			foreach ($categories as $key => $mainCategory) {
@@ -41,15 +60,6 @@
 				}
 			}
 		?>
-		<itunes:owner>
-			<itunes:name><?php echo xml($itunesAuthor); ?></itunes:name>
-			<itunes:email><?php echo xml($itunesEmail); ?></itunes:email>
-		</itunes:owner>
-		<itunes:image href="<?php echo xml($itunesImage); ?>"/>
-		<itunes:subtitle><?php echo xml($itunesSubtitle); ?></itunes:subtitle>
-		<itunes:keywords><?php echo xml($itunesKeywords); ?></itunes:keywords>
-		<itunes:block><?php echo xml($itunesBlock); ?></itunes:block>
-		<itunes:explicit><?php echo xml($itunesExplicit); ?></itunes:explicit>
 
 		<?php foreach($items as $item): ?>
 		<item>
@@ -96,10 +106,10 @@
 			<?php endforeach; ?>
 			<itunes:duration><?php echo $duration; ?></itunes:duration>
 			<itunes:author><?php echo xml($item->author()); ?></itunes:author>
-			<itunes:subtitle><?php echo xml($item->subtitle()); ?></itunes:subtitle>
-			<itunes:summary>
-				<?php echo $item->{$textfield}()->value() ?>
-			</itunes:summary>
+			<itunes:subtitle><![CDATA[<?php echo xml($item->subtitle()); ?>]]></itunes:subtitle>
+			<itunes:summary><![CDATA[<?php echo $item->{$textfield}()->value() ?>]]></itunes:summary>
+			<description><![CDATA[<?php echo $item->{$textfield}()->value() ?>]]></description>
+			<itunes:explicit><?php echo xml($itunesExplicit); ?></itunes:explicit>
 		</item>
 		<?php endforeach ?>
 
