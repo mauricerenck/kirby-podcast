@@ -1,5 +1,9 @@
 # Podcast Plugin
 
+## Update on its way!
+I am working on a big update of this Plugin. Let me know what you're missing or if you have problems with the current version, so I can keep those points in mind for the next release.
+
+
 ## What is it?
 The Podcast plugin will generate a RSS-feed optimized for podcasts. This includes all rss-fields needed for submitting your podcast to iTunes.
 This plugin also analyzes your mp3-files and automaticly adds time- and size-information to the feed. 
