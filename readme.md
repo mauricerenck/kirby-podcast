@@ -83,6 +83,12 @@ Your episode will appear in the feed as soon as it's visible. To make it possibl
 
 ## Options
 
+To overwrite the atomLink-Tag use:
+
+    c::set('plugin.podcast.atom.link', 'http://yourdomain.tld/path/to/file.php');
+
+You can use that to keep your old feed-url active when moving your feed.
+
 ### Advanced Statistics
 
 This plugin uses basic download-tracking. Every download increases the download-counter for your episode. But you can also use advanced statistics using Piwik (recommended) and Google Analytics (not yet fully tested).
