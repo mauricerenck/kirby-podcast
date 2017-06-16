@@ -1,4 +1,5 @@
 title: Podcast RSS Feed
+icon: rss
 pages: false
 fields:
   inhalt:
