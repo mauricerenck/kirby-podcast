@@ -8,9 +8,14 @@
 	$getID3 = new getID3;
 	header::type('text/xml');
 
-	$helper = new PodcastHelper();
+	$helper       = new PodcastHelper();
 	$trackingDate = date('Y-m');
 	$helper->increaseDownloads($page, $trackingDate);
+
+	$atomLink = $page->url();
+	if(c::get('plugin.podcast.atom.link', false)) {
+		$atomLink = c::get('plugin.podcast.atom.link');
+	}
 ?>
 <?php echo '<?xml version="1.0" encoding="utf-8"?>' . PHP_EOL; ?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:fh="http://purl.org/syndication/history/1.0" version="2.0">
@@ -20,7 +25,7 @@
 
 		<description><?php echo xml($page->description()); ?></description>
 
-		<atom:link href="<?php echo xml($page->url()) ?>" rel="self" type="application/rss+xml" title="<?php echo xml($page->title()) ?>"/>
+		<atom:link href="<?php echo xml($atomLink) ?>" rel="self" type="application/rss+xml" title="<?php echo xml($page->title()) ?>"/>
 
 		<lastBuildDate><?php echo date('r', $page->modified()); ?></lastBuildDate>
 		<language><?php echo xml($page->language()); ?></language>
