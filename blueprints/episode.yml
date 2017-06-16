@@ -1,0 +1,81 @@
+title: Podcast Episode
+pages: false
+fields:
+  inhalt:
+    label: Content
+    type: headline
+  title:
+    label: Title
+    type:  text
+  hero:
+    label: Cover
+    type: image
+  Text:
+    label: Text
+    type:  textarea
+  hpodcast:
+    label: Episode
+    type: headline
+  Date:
+    label: Date
+    type: text
+    width: 1/4
+  podseason:
+    label: Season number
+    type:  number
+    width: 1/4
+    help: Added by Apple in iOS 11. Enter your current season number. Leave blank if you do not have seasons
+  podepisode:
+    label: Episode number
+    type:  number
+    width: 1/4
+    help: Added by Apple in iOS 11. Enter your episodes number. 
+  episodeType:
+    label: iTunes episode type
+    type: select
+    default: full
+    options:
+      full: full
+      trailer: trailer
+      bonus: bonus
+    help: Added by Apple in iOS 11. Choose Full for a regular episode, trailer if this is a trailer for an episode, or bonus for bonus material like a making of.
+    width: 1/4
+  podtitle:
+    label: iTunes Title
+    type: text
+    help: This is (currently) an iTunes-Only. Do not add episode or season numbers. Use the corresponding fields for that.
+    width: 1/2
+  podsubtitle:
+    label: Subtitle
+    type:  text
+    width: 1/2
+  poddescr:
+    label: Podcast summary
+    type: textarea
+    help: A short summary of your episode.
+  chapters:
+    label: Chapters
+    type: structure
+    fields: 
+      timestamp:
+        label: Timestamp
+        type: text
+      title: 
+        label: Title
+        type: text
+      url:
+        label: URL
+        type: text
+    help: Some player support chapters. Enter a timestamp, title and url, so your listeners can jump to specific parts of your episode.
+  downloads:
+    label: Downloads
+    type: structure
+    readonly: true
+    fields: 
+      timestamp:
+        label: Year and month
+        type: text
+      downloaded:
+        label: Downloads
+        type: text
+files: true

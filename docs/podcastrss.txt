@@ -1,0 +1,49 @@
+Title: My Podcast
+
+----
+
+Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, voluptatum!
+
+----
+
+Language: de-DE
+
+----
+
+Itunesauthor: Maurice Renck
+
+----
+
+Itunesowner: Maurice Renck
+
+----
+
+Itunesemail: hello@mypodcast.tld
+
+----
+
+Itunesimage: cover.png
+
+----
+
+Itunessubtitle: This is my subtitle
+
+----
+
+Ituneskeywords: my,cool,keyword
+
+----
+
+Itunesblock: false
+
+----
+
+Itunesexplicit: false
+
+----
+
+Itunescategories: Technology,Technology/Gadgets
+
+----
+
+Itunestype: episodic

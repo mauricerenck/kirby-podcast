@@ -1,0 +1,124 @@
+{
+	"arts": {
+		"mainCategory": "Arts",
+		"subCategories": [
+			"Design",
+			"Fashion &amp; Beauty",
+			"Food",
+			"Literature",
+			"Performing Arts",
+			"Visual Arts"
+		]
+	},
+	"business": {
+		"mainCategory": "Business",
+		"subCategories": [
+			"Business News",
+			"Careers",
+			"Investing",
+			"Management &amp; Marketing",
+			"Shopping"
+		]
+	},
+	"comedy": {
+		"mainCategory": "Comedy"
+	},
+	"education": {
+		"mainCategory": "Education",
+		"subCategories": [
+			"Education",
+			"Education Technology",
+			"Higher Education",
+			"K-12",
+			"Language Courses",
+			"Training"
+		]
+	},
+	"gameshobbies": {
+		"mainCategory": "Games &amp; Hobbies",
+		"subCategories": [
+			"Automotive",
+			"Aviation",
+			"Hobbies",
+			"Other Games",
+			"Video Games"
+		]
+	},
+	"govorg": {
+		"mainCategory": "Government &amp; Organizations",
+		"subCategories": [
+			"Local",
+			"National",
+			"Non-Profit",
+			"Regional"
+		]
+	},
+	"health": {
+		"mainCategory": "Health",
+		"subCategories": [
+			"Alternative Health",
+			"Fitness &amp; Nutrition",
+			"Self-Help",
+			"Sexuality"
+		]
+	},
+	"kidsfamily": {
+		"mainCategory": "Kids &amp; Family"
+	},
+	"music": {
+		"mainCategory": "Music"
+	},
+	"newspolitics": {
+		"mainCategory": "News &amp; Politics"
+	},
+	"relspirit": {
+		"mainCategory": "Religion &amp; Spirituality",
+		"subCategories": [
+			"Buddhism",
+			"Christianity",
+			"Hinduism",
+			"Islam",
+			"Judaism",
+			"Other",
+			"Spirituality"
+		]
+	},
+	"scimed": {
+		"mainCategory": "Science &amp; Medicine",
+		"subCategories": [
+			"Medicine",
+			"Natural Sciences",
+			"Social Sciences"
+		]
+	},
+	"soccult": {
+		"mainCategory": "Society &amp; Culture",
+		"subCategories": [
+			"History",
+			"Personal Journals",
+			"Philosophy",
+			"Places &amp; Travel"
+		]
+	},
+	"sports": {
+		"mainCategory": "Sports &amp; Recreation",
+		"subCategories": [
+			"Amateur",
+			"College &amp; High School",
+			"Outdoor",
+			"Professional"
+		]
+	},
+	"technology": {
+		"mainCategory": "Technology",
+		"subCategories": [
+			"Gadgets",
+			"Tech News",
+			"Podcasting",
+			"Software How-To"
+		]
+	},
+	"tvfilm": {
+		"mainCategory": "TV &amp; Film"
+	}
+}

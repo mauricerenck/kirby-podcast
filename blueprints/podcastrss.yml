@@ -1,0 +1,92 @@
+title: Podcast RSS Feed
+pages: false
+fields:
+  inhalt:
+    label: General Information
+    type: headline
+  title:
+    label: Title
+    type:  text
+  Description:
+    label: Description
+    type:  textarea
+  itunes:
+    label: iTunes specific Information
+    type: headline
+  Language:
+    label: Language
+    type:  text
+    width: 1/4
+  Itunesauthor:
+    label: iTunes Author
+    type:  text
+    width: 1/4
+  Itunesowner:
+    label: iTunes Owner
+    type:  text
+    width: 1/4
+  Itunesemail:
+    label: iTunes E-Mail
+    type:  email
+    width: 1/4
+  line:
+    type: line
+  Itunesimage:
+    label: iTunes Cover
+    type:  image
+    width: 1/2
+  Itunessubtitle:
+    label: iTunes subtitle
+    type:  text
+    width: 1/2
+  line2:
+    type: line
+  Ituneskeywords:
+    label: iTunes keywords
+    type:  tags
+    width: 1/2
+  Itunescategories:
+    label: iTunes categories
+    type:  tags
+    width: 1/2
+  Itunesblock:
+    label: Block on iTunes
+    type: toggle
+    text: yes/no
+    width: 1/4
+  Itunesexplicit:
+    label: Explicit Content?
+    type: toggle
+    text: yes/no
+    width: 1/4
+  iTunesExplicitInfo:
+    label: Careful!
+    type: info
+    text: >
+      These settings change your visibility on podcast networks!
+    width: 1/2
+  iTunesType:
+    label: iTunes podcast type
+    type: select
+    default: episodic
+    options:
+      episodic: Episodic
+      serial: Serial
+    width: 1/2
+  iTunesTypeInfo:
+    label: Podcast types
+    type: info
+    text: >
+      Podcast types are a new feature introduced by Apple in iOS 11. Use episodic if your audience doesn't need to listen to your episodes in a special order. Use serial if your episodes depend on eachother and should be listened to in a specific order.
+    width: 1/2
+  downloads:
+    label: Downloads
+    type: structure
+    readonly: true
+    fields: 
+      timestamp:
+        label: Year and month
+        type: text
+      downloaded:
+        label: Downloads
+        type: text
