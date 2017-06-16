@@ -1,4 +1,4 @@
-# Kirby podcaster Plugin
+# Kirby Podcast Plugin
 
 This Plugins enables you to use Kirby for podcasting. It creates an iTunes ready RSS-Feed for you. It reads your mp3-metadata to determine the length of your mp3 files.
 
@@ -12,10 +12,14 @@ This plugin now supports multiple podcast feeds.
 
 This plugin support the new iOS 11 podcast rss fields like season and episode numbers.
 
+## Updating from Version 1
+
+Please be aware that this version is a complete rewrite. It's recommended to do a fresh install. Please use a test-environment to see if it is compatible with your old installation.
+
 ## Requirements
 
-Kirby 2.4.1
-PHP 5.6
+- Kirby 2.4.1
+- PHP 5.6
 
 ## Installation
 
