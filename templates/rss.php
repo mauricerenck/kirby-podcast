@@ -1,5 +1,6 @@
 <?php
 	namespace Podcast;
+	use c;
 	use header;
 	use getID3;
 
