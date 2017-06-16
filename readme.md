@@ -4,13 +4,18 @@ This Plugins enables you to use Kirby for podcasting. It creates an iTunes ready
 
 This plugin comes with a basic download tracking and a Panel Widget to show you the latest stats. You can enable advanced tracking using Piwik or Google Analytics.
 
-There is also an HTML5 Audioplayer Snippet you can use in your templates. A more advanced player will follow.
 
-You can now use Kirby CLI to install this plugin.
+## Features
 
-This plugin now supports multiple podcast feeds.
-
-This plugin support the new iOS 11 podcast rss fields like season and episode numbers.
+- Podcast Chapters
+- New iTunes iOS 11 Specs supported
+- Basic Statistics
+- Advanced Statistics using Piwik or Google Analytics
+- See your stats in the Panel (Widget)
+- HTML5 Audioplayer Snippet
+- Blueprints for your episodes and feeds
+- Multiple feeds
+- Kirby CLI support
 
 ## Updating from Version 1
 
