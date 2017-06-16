@@ -1,5 +1,5 @@
 {
-  "name": "Kirby Podcast Plugin",
+  "name": "podcast",
   "version": "2.0.0",
   "description": "Creates a podcast feed, itunes-ready and set up in minutes",
   "author": "Maurice Renck <hello@maurice-renck.de>",
