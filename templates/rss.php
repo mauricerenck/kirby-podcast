@@ -106,8 +106,8 @@
 			<itunes:duration><?php echo $duration; ?></itunes:duration>
 
 			<itunes:author><?php echo xml($episode->author()->or($page->itunesAuthor())); ?></itunes:author>
-			<itunes:subtitle><?php echo xml($episode->subtitle()); ?></itunes:subtitle>
-			<itunes:summary><?php echo xml($episode->subtitle()); ?></itunes:summary>
+			<itunes:subtitle><?php echo xml($episode->podsubtitle()); ?></itunes:subtitle>
+			<itunes:summary><?php echo xml($episode->podsubtitle()); ?></itunes:summary>
 
 			<?php if($episode->podseason()->isNotEmpty()): ?><itunes:season><?php echo xml($episode->podseason()); ?></itunes:season><?php endif; ?>
 			<?php if($episode->podepisode()->isNotEmpty()): ?><itunes:episode><?php echo xml($episode->podepisode()); ?></itunes:episode><?php endif; ?>
