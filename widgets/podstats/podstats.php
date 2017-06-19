@@ -5,6 +5,7 @@ return array(
 	'title' => 'Podcast Statistics ' . $titleDate,
 	'html' => function() {
 		$highscore        = array();
+		$monthSum         = array('ecurrent' => 0, 'elast' => 0, 'rsscurrent' => 0, 'rsslast' => 0);
 		$trackingDate     = date('Y-m');
 		$lastTrackingDate = date('Y-m', strtotime(date('Y-m', strtotime($trackingDate.'-01')) . ' -1 month'));
 
@@ -28,13 +29,21 @@ return array(
 					}
 				}
 
-				$highscore[] = array(
-					'title'        => $page->title()->html(),
-					'downloads'    => $downloads,
-					'url'          => $page->url(),
-					'currentMonth' => $currentMonth,
-					'lastMonth'    => $lastMonth
-				);
+				if($page->intendedTemplate() != 'podcastrss') {
+					$monthSum['ecurrent'] += $currentMonth;
+					$monthSum['elast']    += $lastMonth;
+
+					$highscore[] = array(
+						'title'        => $page->title()->html(),
+						'downloads'    => $downloads,
+						'url'          => $page->url(),
+						'currentMonth' => $currentMonth,
+						'lastMonth'    => $lastMonth
+					);
+				} else {
+					$monthSum['rsscurrent'] += $currentMonth;
+					$monthSum['rsslast']    += $lastMonth;
+				}
 
 				// sort by current months downloads
 				usort($highscore, function ($a, $b) { return ($a['currentMonth'] < $b['currentMonth']); });
@@ -42,7 +51,8 @@ return array(
 		}
 
 		return tpl::load(__DIR__ . DS . 'template.php', array(
-			'pages' => $highscore
+			'pages'   => $highscore,
+			'summary' => $monthSum
 		));
 	}
 );

@@ -1,6 +1,6 @@
 {
   "name": "podcast",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Creates a podcast feed, itunes-ready and set up in minutes",
   "author": "Maurice Renck <hello@maurice-renck.de>",
   "license": "MIT",
