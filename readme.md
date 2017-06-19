@@ -130,7 +130,7 @@ Example:
 
 #### Google Analytics
 
-You can use Google Analitics for advanced tracking. Please be aware, that this feature isn't fully tested by now. Set your UA-Id to enable tracking, enter an event name and decide if you want to trigger a page view.
+You can use Google Analytics for advanced tracking. Please be aware, that this feature isn't fully tested by now. Set your UA-Id to enable tracking, enter an event name and decide if you want to trigger a page view.
 
 
 |Option|Value|Mandatory|
