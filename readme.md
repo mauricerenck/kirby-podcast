@@ -88,6 +88,10 @@ Your episode will appear in the feed as soon as it's visible. To make it possibl
 
 ## Options
 
+To set the number if items shown in the download-stat-widget, use:
+
+    c::set('plugin.podcast.widget.entries', 10);
+
 To overwrite the atomLink-Tag use:
 
     c::set('plugin.podcast.atom.link', 'http://yourdomain.tld/path/to/file.php');

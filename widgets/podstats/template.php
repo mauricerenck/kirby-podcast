@@ -2,16 +2,23 @@
 <table class="podcast-list">
 <tr><th>Episode</th><th colspan="3" class="align-right">Downloads</th></tr>
 <?php
-	foreach($pages as $page) {
-		$arrow = '<span style="color: green">⬆</span>';
+	$maxEntries = c::get('plugin.podcast.widget.entries', 20);
+	$currentEntry = 0;
 
-		if($page['currentMonth'] < $page['lastMonth']) {
-			$arrow = '<span style="color: red">⬇</>';
-		} else if($page['currentMonth'] == $page['lastMonth']) {
-			$arrow = '&mdash;';
+	foreach($pages as $page) {
+		if($currentEntry < $maxEntries) {
+			$arrow = '<span style="color: green">⬆</span>';
+
+			if($page['currentMonth'] < $page['lastMonth']) {
+				$arrow = '<span style="color: red">⬇</>';
+			} else if($page['currentMonth'] == $page['lastMonth']) {
+				$arrow = '&mdash;';
+			}
+
+			echo '<tr><td><a href="'.$page['url'].'">' . $page['title'] . '</a></td><td class="align-right">' . $page['currentMonth'] . '</td><td>' . $arrow .'</td><td class="align-right"><span class="light" title="Prev. month">' . $page['lastMonth'] . '</span></td></tr>';
 		}
 
-		echo '<tr><td><a href="'.$page['url'].'">' . $page['title'] . '</a></td><td class="align-right">' . $page['currentMonth'] . '</td><td>' . $arrow .'</td><td class="align-right"><span class="light" title="Prev. month">' . $page['lastMonth'] . '</span></td></tr>';
+		$currentEntry++;
 	}
 ?>
 </table>
