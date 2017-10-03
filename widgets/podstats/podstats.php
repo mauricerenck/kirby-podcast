@@ -17,9 +17,13 @@ return array(
 			if($page->content()->get('downloads')->isNotEmpty()) {
 				$currentMonth = 0;
 				$lastMonth    = 0;
+				$total        = 0;
 				$downloads    = $page->downloads()->yaml();
 
 				foreach ($downloads as $download) {
+
+					$total += $download['downloaded'];
+
 					if($download['timestamp'] == $trackingDate) {
 						$currentMonth = $download['downloaded'];
 					}
@@ -35,7 +39,7 @@ return array(
 
 					$highscore[] = array(
 						'title'        => $page->title()->html(),
-						'downloads'    => $downloads,
+						'downloads'    => $total,
 						'url'          => $page->url(),
 						'currentMonth' => $currentMonth,
 						'lastMonth'    => $lastMonth

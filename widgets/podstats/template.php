@@ -5,7 +5,7 @@
 <tr><td>RSS Feed</td><td class="align-right"><?php echo $summary['rsscurrent']; ?></td><td class="align-right"><?php echo $summary['rsslast']; ?></td></tr>
 </table>
 <table class="podcast-list">
-<tr><th>Episode</th><th colspan="2" class="align-center">Downloads</th></tr>
+<tr><th>Episode</th><th colspan="2" class="align-center">Downloads</th><th>Total</th></tr>
 <?php
 	$maxEntries = c::get('plugin.podcast.widget.entries', 20);
 	$currentEntry = 0;
@@ -20,7 +20,7 @@
 				$arrow = '&mdash;';
 			}
 
-			echo '<tr><td><a href="'.$page['url'].'">' . $page['title'] . '</a></td><td class="align-right">' . $page['currentMonth'] . '</td><td>' . $arrow .'<span class="light" title="Prev. month">' . $page['lastMonth'] . '</span></td></tr>';
+			echo '<tr><td><a href="'.$page['url'].'">' . $page['title'] . '</a></td><td class="align-right">' . $page['currentMonth'] . '</td><td>' . $arrow .'<span class="light" title="Prev. month">' . $page['lastMonth'] . '</span></td><td>' . $page['downloads'] . '</td></tr>';
 		}
 
 		$currentEntry++;
