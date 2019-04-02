@@ -4,6 +4,12 @@ This Plugins enables you to use Kirby for podcasting. It creates an iTunes ready
 
 This plugin comes with a basic download tracking and a Panel Widget to show you the latest stats. You can enable advanced tracking using Piwik or Google Analytics.
 
+---
+
+## Looking for a Kirby 3 version?
+This plugins has been completely rewritten for Kirby 3. I decided to keep them both alive. You can find the version for Kirby 3 here: https://github.com/mauricerenck/kirby-podcaster
+
+---
 
 ## Features
 
